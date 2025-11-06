@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ts-user" />
+        <module name="ts-common" />
+        <module name="ts-gateway" />
+        <module name="ts-article" />
+        <module name="ts-domain" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="test2" options="-parameters" />
+      <module name="ts-article" options="-parameters" />
+      <module name="ts-common" options="-parameters" />
+      <module name="ts-domain" options="-parameters" />
+      <module name="ts-gateway" options="-parameters" />
+      <module name="ts-user" options="-parameters" />
+    </option>
+  </component>
+</project>
