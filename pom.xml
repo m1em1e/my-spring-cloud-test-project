@@ -34,6 +34,9 @@
         <fastjson.version>1.2.83</fastjson.version>
         <lombok.version>1.18.30</lombok.version>
         <mybatis-plus.version>3.5.12</mybatis-plus.version>
+        <nacos.version>3.1.0</nacos.version>
+        <ts.version>0.0.1-SNAPSHOT</ts.version>
+        <spring-cloud-alibaba.version>2.2.9.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
     <dependencyManagement>
@@ -48,14 +51,10 @@
             <!-- spring -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
+                <artifactId>spring-boot-starter</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-aop</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
+
 
             <!-- spring cloud -->
             <dependency>
@@ -64,6 +63,13 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- nacos 注册发现 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
             </dependency>
 
             <!-- 数据库 -->
@@ -87,56 +93,37 @@
                 <version>${fastjson.version}</version>
             </dependency>
 
-            <!--nacos 服务注册发现-->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            </dependency>
-
-            <!--openFeign-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-openfeign</artifactId>
-            </dependency>
-
-            <!--负载均衡器-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-loadbalancer</artifactId>
-            </dependency>
-
-            <!--OK http 的依赖 -->
-            <dependency>
-                <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-okhttp</artifactId>
-            </dependency>
-
-            <!-- nacos配置中心 -->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            </dependency>
-
             <!-- bootstrap文件配置读取 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-bootstrap</artifactId>
             </dependency>
 
+            <!--OK http 的依赖 -->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>4.9.3</version>
+            </dependency>
+
+            <!-- 本地模块 -->
             <dependency>
                 <groupId>org.genntii</groupId>
                 <artifactId>ts-common</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${ts.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.genntii</groupId>
                 <artifactId>ts-domain</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${ts.version}</version>
             </dependency>
 
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+
+    </dependencies>
 
     <build>
         <plugins>

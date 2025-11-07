@@ -17,13 +17,20 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+
     <dependencies>
 
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 本地模块 -->
         <dependency>
             <groupId>org.genntii</groupId>
             <artifactId>ts-common</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.genntii</groupId>
             <artifactId>ts-domain</artifactId>
