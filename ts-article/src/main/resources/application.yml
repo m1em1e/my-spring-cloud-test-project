@@ -1,11 +1,13 @@
 server:
   port: 8083
-spring:
-  application:
-    name: ts-article
-  cloud:
-    nacos:
-      server-addr: 106.52.245.23:8848
 feign:
   okhttp:
     enabled: true
+
+mkdir:
+  db:
+    host: localhost
+    port: 3306
+    database: t_article
+    username: root
+    password: 123456

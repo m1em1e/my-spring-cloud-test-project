@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.genntii</groupId>
     <artifactId>test2</artifactId>
@@ -20,7 +21,6 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.12.RELEASE</version>
     </parent>
-
 
 
     <properties>
@@ -53,6 +53,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
                 <version>${spring-boot.version}</version>
+                <exclusions>
+                    <!-- 引入了fastjson, 所以排除jackson -->
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
 
@@ -82,7 +89,7 @@
             <!-- mybatis plus -->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus</artifactId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
 
@@ -91,6 +98,13 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- nacos配置管理 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
             </dependency>
 
             <!-- bootstrap文件配置读取 -->
@@ -115,6 +129,16 @@
             <dependency>
                 <groupId>org.genntii</groupId>
                 <artifactId>ts-domain</artifactId>
+                <version>${ts.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.genntii</groupId>
+                <artifactId>ts-article</artifactId>
+                <version>${ts.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.genntii</groupId>
+                <artifactId>ts-user</artifactId>
                 <version>${ts.version}</version>
             </dependency>
 

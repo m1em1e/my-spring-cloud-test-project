@@ -1,0 +1,7 @@
+mkdir:
+  db:
+    host: localhost
+    port: 3306
+    database: t_user
+    username: root
+    password: 123456
