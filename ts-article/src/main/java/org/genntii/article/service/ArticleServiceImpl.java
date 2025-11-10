@@ -23,8 +23,8 @@ import java.util.List;
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> implements ArticleService {
 
     @Override
-    public List<Article> selectListByUser(IdParam param) {
-        return baseMapper.selectListByUser(param.getId());
+    public List<Article> selectListByUser(Long id) {
+        return baseMapper.selectListByUser(id);
     }
 
 }

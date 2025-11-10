@@ -27,8 +27,8 @@ public class ArticleController {
     private ArticleService articleService;
 
     @GetMapping("/getArticleByUser")
-    public List<Article> getArticleByUser(@RequestParam IdParam param) {
-        return articleService.selectListByUser(param);
+    public List<Article> getArticleByUser(@RequestParam Long id) {
+        return articleService.selectListByUser(id);
     }
 
 }

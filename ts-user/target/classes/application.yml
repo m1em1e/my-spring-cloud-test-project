@@ -1,0 +1,16 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: ts-article
+  cloud:
+    nacos:
+      server-addr: 106.52.245.23:8848
+  datasource:
+    url: jdbc:mysql://${mkdir.db.host}:${mkdir.db.port}/${mkdir.db.database}
+    username: ${mkdir.db.username}
+    password: ${mkdir.db.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+feign:
+  okhttp:
+    enabled: true

@@ -16,5 +16,5 @@ import java.util.List;
  * @since 2025/11/10 10:18
  */
 public interface ArticleService extends IService<Article> {
-    List<Article> selectListByUser(IdParam param);
+    List<Article> selectListByUser(Long id);
 }

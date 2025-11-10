@@ -27,7 +27,9 @@ public class ParamLoggerHandler {
 
     // 定义切点，拦截所有Controller中的公共方法
     @Pointcut("execution(public * *(..)) && @within(org.springframework.web.bind.annotation.RestController)")
-    public void controllerMethodPointcut() {}
+    public void controllerMethodPointcut() {
+        log.info("ParamLoggerHandler AOP 初始化完成");
+    }
 
     // 环绕通知，处理日志记录
     @Around("controllerMethodPointcut()")
@@ -48,7 +50,7 @@ public class ParamLoggerHandler {
         String methodName = joinPoint.getSignature().getName();
         Object[] args = joinPoint.getArgs();
 
-        log.info("发现入参：\n请求方式: {}\n路径：{}，\n方法：{}.{}，\n入参：{}",
+        log.info("发现入参： 请求方式: {} 路径：{}， 方法：{}.{}， 入参：{}",
                 method, uri, className, methodName, args);
 
         Object result;
@@ -58,11 +60,11 @@ public class ParamLoggerHandler {
 
             // 记录出参
             long endTime = System.currentTimeMillis();
-            log.info("出参：\n方法：{}，\n时间：{}ms，\n出参:{}",
+            log.info("出参： 方法：{}， 时间：{}ms， 出参:{}",
                     methodName, (endTime - startTime), result);
         } catch (Exception e) {
             long endTime = System.currentTimeMillis();
-            log.error("抛出异常：\n方法：{}，\n时间：{}ms，\n异常:{}",
+            log.error("抛出异常： 方法：{}， 时间：{}ms， 异常:{}",
                     methodName, (endTime - startTime), e.getMessage(), e);
             throw e;
         }
