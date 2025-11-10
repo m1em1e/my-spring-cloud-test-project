@@ -89,7 +89,7 @@
             <!-- mybatis plus -->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus</artifactId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
 
@@ -122,6 +122,16 @@
             <dependency>
                 <groupId>org.genntii</groupId>
                 <artifactId>ts-domain</artifactId>
+                <version>${ts.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.genntii</groupId>
+                <artifactId>ts-article</artifactId>
+                <version>${ts.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.genntii</groupId>
+                <artifactId>ts-user</artifactId>
                 <version>${ts.version}</version>
             </dependency>
 

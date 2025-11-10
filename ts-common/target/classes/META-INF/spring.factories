@@ -1,1 +1,3 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.genntii.common.config.ParamLogAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.genntii.common.config.DateTimeFormatAutoConfiguration,\
+  org.genntii.common.config.DateTimeFormatAutoConfiguration

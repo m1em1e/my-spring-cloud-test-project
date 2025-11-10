@@ -1,5 +1,6 @@
 package org.genntii.common.config;
 
+import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
@@ -20,20 +21,13 @@ import org.springframework.http.MediaType;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- *
- *
- * @author mkdir
- * @since 2025/11/07 17:28
- */
 @Configuration
-@ConditionalOnWebApplication // 仅在Web应用环境下生效
-@ConditionalOnClass({FastJsonHttpMessageConverter.class}) // 确保FastJson在类路径下
+@ConditionalOnWebApplication
+@ConditionalOnClass({FastJsonHttpMessageConverter.class})
 public class DateTimeFormatAutoConfiguration {
 
     @Bean
-    @ConditionalOnMissingBean(HttpMessageConverters.class) // 避免重复配置
+    @ConditionalOnMissingBean(HttpMessageConverters.class)
     public HttpMessageConverters fastJsonHttpMessageConverters() {
         FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
 
@@ -41,14 +35,18 @@ public class DateTimeFormatAutoConfiguration {
         FastJsonConfig config = new FastJsonConfig();
 
         // 配置序列化设置
-        SerializeConfig serializeConfig = SerializeConfig.globalInstance;
+        SerializeConfig serializeConfig = new SerializeConfig();
         serializeConfig.put(java.time.LocalDate.class, new LocalDateSerializer());
         serializeConfig.put(java.time.LocalDateTime.class, new LocalDateTimeSerializer());
-        // 配置反序列化（Fastjson 1.2.83 及以后版本）
-        serializeConfig.put(java.time.LocalDate.class, new LocalDateDeserializer());
-        serializeConfig.put(java.time.LocalDateTime.class, new LocalDateTimeDeserializer());
+
+        // 配置反序列化设置 - 使用 ParserConfig
+        ParserConfig parserConfig = new ParserConfig();
+        parserConfig.putDeserializer(java.time.LocalDate.class, new LocalDateDeserializer());
+        parserConfig.putDeserializer(java.time.LocalDateTime.class, new LocalDateTimeDeserializer());
 
         config.setSerializeConfig(serializeConfig);
+        config.setParserConfig(parserConfig); // 设置反序列化配置
+
         config.setSerializerFeatures(
                 SerializerFeature.WriteMapNullValue,
                 SerializerFeature.WriteNullListAsEmpty,
