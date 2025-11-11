@@ -1,6 +1,0 @@
-org\genntii\domain\BaseEntity.class
-org\genntii\domain\param\IdParam.class
-org\genntii\domain\vo\ArticleVO.class
-org\genntii\domain\entity\Article$ArticleBuilder.class
-org\genntii\domain\entity\Article.class
-org\genntii\domain\vo\ArticleVO$ArticleVOBuilder.class
