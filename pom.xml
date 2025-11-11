@@ -37,6 +37,7 @@
         <nacos.version>3.1.0</nacos.version>
         <ts.version>0.0.1-SNAPSHOT</ts.version>
         <spring-cloud-alibaba.version>2.2.9.RELEASE</spring-cloud-alibaba.version>
+        <okhttp3.version>4.9.3</okhttp3.version>
     </properties>
 
     <dependencyManagement>
@@ -117,7 +118,13 @@
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
-                <version>4.9.3</version>
+                <version>${okhttp3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
             </dependency>
 
             <!-- 本地模块 -->
