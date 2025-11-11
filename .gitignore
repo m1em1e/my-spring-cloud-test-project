@@ -2,8 +2,7 @@ HELP.md
 **/target/**
 
 ### aplication ###
-src/main/resources/application-dev.yaml
-src/main/resources/application-prod.yaml
+**/src/main/resources/application-dev.yml
 
 ### STS ###
 .apt_generated
