@@ -1,7 +1,0 @@
-mkdir:
-  db:
-    host: PROD_MYSQL_HOST
-    port: PROD_MYSQL_PORT
-    database: PROD_MYSQL_DATABASE
-    username: PROD_MYSQL_USERNAME
-    password: PROD_MYSQL_PASSWORD

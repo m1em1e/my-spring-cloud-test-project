@@ -1,6 +1,0 @@
-org\genntii\article\controller\ArticleController.class
-org\genntii\article\mapper\ArticleMapper.class
-org\genntii\article\TsArticleApplication.class
-org\genntii\article\service\ArticleServiceImpl.class
-org\genntii\article\client\ArticleClient.class
-org\genntii\article\service\ArticleService.class
